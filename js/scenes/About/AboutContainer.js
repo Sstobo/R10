@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import {  AppRegistry,View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 
 import About from "./About";
 // this file creates and shares the props
@@ -34,11 +34,18 @@ class AboutContainer extends Component {
       }
     }
 
+    static route = {
+      navigationBar: {
+        title: 'About',
+      }
+    }
+
   render() {
+    
     console.log(this.state.data)
     if (this.state.loading) {
       return (
-       <ActivityIndicator animating={true} size="small" color="black" />
+       <ActivityIndicator animating={true} size="large" color="black" style={{marginTop: 44}}/>
       );
     } else {
     return (
@@ -50,4 +57,5 @@ class AboutContainer extends Component {
 
 
 //make this component available to the app
+AppRegistry.registerComponent('about', () => App);
 export default AboutContainer;

@@ -24,10 +24,14 @@ aboutImageContainer: {
   justifyContent: 'center',
   borderBottomWidth: 1,
   height: 100,
-  marginBottom: 24
+  marginBottom: 24,
+  borderColor: "#e6e6e6",
 },
 aboutImage: {
 
+},
+listWrapper: {
+  marginTop: 24
 }
 
     
