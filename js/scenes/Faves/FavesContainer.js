@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-// import { View, Text, StyleSheet } from 'react-native';
+import {  AppRegistry,View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 
 import Faves from "./Faves";
 
@@ -9,8 +9,12 @@ import Faves from "./Faves";
 class FavesContainer extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = { 
+      loading: true,
+      data: ["Test"],
+    }
   }
+  
   render() {
     return <Faves />;
   }

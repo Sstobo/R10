@@ -3,11 +3,16 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
 container: {
   margin: 14,
-  marginTop: 44,
+  marginTop: 14,
 },
+listWrapper: {
+  marginTop: 24
+},
+// h1
 aboutSubLine: {
   fontSize: 26,
 },
+// p
 aboutText: {
   fontSize: 18,
   marginTop: 12,
@@ -24,15 +29,9 @@ aboutImageContainer: {
   justifyContent: 'center',
   borderBottomWidth: 1,
   height: 100,
-  marginBottom: 24,
   borderColor: "#e6e6e6",
 },
-aboutImage: {
 
-},
-listWrapper: {
-  marginTop: 24
-}
 
     
 });
