@@ -14,7 +14,7 @@ class AboutContainer extends Component {
     super();
     this.state = { 
       loading: true,
-      data: [],
+      data: ["Test"],
     }
     };
 

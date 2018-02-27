@@ -4,32 +4,47 @@ import PropTypes from "prop-types";
 import {
    View, 
    Text,
-   SectionList
+   FlatList,
+   Image,
+   ScrollView
    } 
    from "react-native";
 
 import { styles } from "./styles";
 
 
-const About = ({data}) => (
-  
+class About extends React.Component {
+  render () {
+    return (
   <View style={styles.container}>
-  
-    <Text> R10 </Text>
-    <Text>R10 is a conference that focuses on just abouut any toipic related to dev.</Text>
-    <Text>Date & Venue</Text>
-    <Text>The R10 conference will take place on Tuesday, June 27, 2017 in Vancouver, BC</Text>
-    <Text>Code of Conduct</Text>
+<ScrollView>
+    <View style={styles.aboutImageContainer} >
+    <Image style={styles.aboutImage} source={require('../../assets/images/r10_logo.png')} />
+    </View>
 
-    <SectionList 
-    sections={data}
-    renderItem = {({item}) => <Text> {item} </Text>}
-    renderSectionHeader={({section}) => <Text> {section.title}</Text>}
-    keyExtractor={item => item}
-    />
-  )
+
+    <Text style={styles.aboutText}>R10 is a conference that focuses on just abouut any toipic related to dev.</Text>
+    <Text style={styles.aboutSubLine}>Date & Venue</Text>
+    <Text style={styles.aboutText}>The R10 conference will take place on Tuesday, June 27, 2017 in Vancouver, BC</Text>
+    <Text  style={styles.aboutSubLine}>Code of Conduct</Text>
+
+  
+  <FlatList
+            data={this.props.data}
+            renderItem={({ item }) => (
+              <View style={styles.container}>
+                <Text style={styles.menuTitlesAbout}> +{item.title} </Text>
+                <Text style={styles.description}> +{item.description} </Text>
+              </View>
+            )}
+            keyExtractor={item => item.title}
+          />
+          </ScrollView>
   </View>
-);
+    )
+  }
+}
+
 
 
 
