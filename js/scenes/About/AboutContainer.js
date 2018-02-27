@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 
 import About from "./About";
 // this file creates and shares the props
@@ -28,12 +28,23 @@ class AboutContainer extends Component {
       .catch(err => console.log(`Error fetching JSON: ${error}`))
     }
     // component DidMOunt //Fetch data  Loading: false
-  
-  render() {
-    const loading = this.state.loading
-   
+    componentDidUpdate() {
+      if ( this.state.data && this.state.loading ) {
+        this.setState({ loading: false });
+      }
+    }
 
-    return loading ? <Text> Loading </Text> : <About data = {this.state.data}/> 
+  render() {
+    console.log(this.state.data)
+    if (this.state.loading) {
+      return (
+       <ActivityIndicator animating={true} size="small" color="black" />
+      );
+    } else {
+    return (
+    
+    <About data={this.state.data}/> )
+    }
   }
 }
 

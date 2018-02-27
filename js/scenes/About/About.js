@@ -21,14 +21,13 @@ const About = ({data}) => (
     <Text>The R10 conference will take place on Tuesday, June 27, 2017 in Vancouver, BC</Text>
     <Text>Code of Conduct</Text>
 
-{this.props.data && (
     <SectionList 
-    sections={this.props.data}
+    sections={data}
     renderItem = {({item}) => <Text> {item} </Text>}
-    renderSectionHeader={({ section}) => <Text> {section.title}</Text>}
+    renderSectionHeader={({section}) => <Text> {section.title}</Text>}
     keyExtractor={item => item}
     />
-  )}
+  )
   </View>
 );
 
