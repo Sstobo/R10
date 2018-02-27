@@ -7,6 +7,7 @@ import {
 } from '@expo/ex-navigation';
 import Router from "./../navigation/routes"
 import {colors} from "./../config/styleConstants"
+import Icon from 'react-native-vector-icons/Ionicons'
 
 class NavigationLayout extends Component {
   static route = {
@@ -19,8 +20,8 @@ class NavigationLayout extends Component {
     return (
       
       <TabNavigation id="main" navigatorUID="main" tabBarColor={colors.black} initialTab="about" >
-      
-      <TabItem id="schedule" title="schedule" renderTitle={this.renderTitle}>
+
+      <TabItem id="schedule" title="schedule" renderTitle={this.renderTitle} renderIcon={(isSelected) => this.renderIcon(isSelected, 'ion-ios-calendar-outline')} >
 
         <StackNavigation
           id="schedule"
@@ -51,8 +52,10 @@ renderTitle(isSelected, title){
   
   return <Text style={{color: isSelected ? colors.white : colors.mediumGrey}}>{title}</Text>
   }
+
+renderIcon(isSelected, iconName) {
+  return  <Text style={{color: isSelected ? colors.white : colors.mediumGrey}}>{iconName}</Text>
 }
-
-
+}
 
 export default NavigationLayout;

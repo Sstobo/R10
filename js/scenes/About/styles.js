@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
 container: {
   margin: 14,
   marginTop: 14,
+  fontFamily: "Montserrat-Light",
 },
 listWrapper: {
   marginTop: 24
