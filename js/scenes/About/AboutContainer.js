@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-// import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 import About from "./About";
 // this file creates and shares the props
@@ -14,30 +14,29 @@ class AboutContainer extends Component {
     super();
     this.state = { 
       loading: true,
-      data = []
-    
+      data: [],
+    }
     };
 
-    componentDidMount(){
+   componentDidMount() {
       let endpoint = "https://r10app-95fea.firebaseio.com/code_of_conduct.json";
       fetch(endpoint)
       .then(res => res.json())
       .then(data => {
-        this.setState({ data });
+        this.setState({ data, loading:false });
       })
       .catch(err => console.log(`Error fetching JSON: ${error}`))
     }
     // component DidMOunt //Fetch data  Loading: false
-  }
+  
   render() {
+    const loading = this.state.loading
+   
 
-    return 
-    {this.state.data && (
-    <About data = {this.state.data}/>
-    )
+    return loading ? <Text> Loading </Text> : <About data = {this.state.data}/> 
   }
 }
-}
+
 
 //make this component available to the app
 export default AboutContainer;
