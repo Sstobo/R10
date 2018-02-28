@@ -13,7 +13,7 @@ class SessionContainer extends Component {
     }
       static route = {
         navigationBar: {
-          title: 'Session',
+          title: 'session',
         }
       }
 
@@ -27,7 +27,7 @@ class SessionContainer extends Component {
     } else {
     return (
     
-    <Session data={this.props.data}/> 
+    <Session data={this.props.route.params.sessionData}/> 
     )
    }
   }

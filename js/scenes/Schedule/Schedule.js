@@ -23,7 +23,7 @@ const Schedule = ({data}) => (
     renderItem={({ item }) =>
     <View> 
 
-    <TouchableHighlight onPress={() => goToSession("schedule",{data})}>
+    <TouchableHighlight onPress={() => goToSession("schedule",{item})}>
     <View>
       <Text>{item.title}</Text>
       <Text>{item.location}</Text>
@@ -35,7 +35,7 @@ const Schedule = ({data}) => (
   renderSectionHeader={({ section }) => <Text>{formatUnixDate(section.title)}</Text>}
   keyExtractor={(item , index) => index}
 />
-    <Text>Schedule SCENE</Text>
+   
   </View>
 );
 
