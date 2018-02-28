@@ -11,6 +11,7 @@ const Session = ({data}) => (
   sections={data}
   renderItem={({ item }) => <Text>{item.title}</Text>}
   renderSectionHeader={({ section }) => <Text>{section.title}</Text>}
+  keyExtractor={(item , index) => index}
 />
     <Text>Session SCENE</Text>
   </View>

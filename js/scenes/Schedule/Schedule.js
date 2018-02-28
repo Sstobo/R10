@@ -1,17 +1,39 @@
 //import liraries
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, Text, SectionList  } from "react-native";
 import { styles } from "./styles";
-// import Moment from 'react-moment';
-// create a component
+import {formatUnixDate } from './../../redux/helpers/dataReshaper'
+import {goToSession} from './../../redux/helpers/navigationHelpers'
+import {
+  SectionList ,
+  AppRegistry,
+  StyleSheet,
+  TouchableHighlight,
+  Text,
+  View,
+} from 'react-native'
+
+
 const Schedule = ({data}) => (
+
   <View>
 
   <SectionList
-  sections={data}
-  renderItem={({ item }) => <Text>{item.title}</Text>}
-  renderSectionHeader={({ section }) => <Text>{section.title}</Text>}
+    sections={data}
+    renderItem={({ item }) =>
+    <View> 
+
+    <TouchableHighlight onPress={() => goToSession("schedule",{data})}>
+    <View>
+      <Text>{item.title}</Text>
+      <Text>{item.location}</Text>
+    </View>
+    </TouchableHighlight>
+    
+    </View>}
+
+  renderSectionHeader={({ section }) => <Text>{formatUnixDate(section.title)}</Text>}
+  keyExtractor={(item , index) => index}
 />
     <Text>Schedule SCENE</Text>
   </View>
