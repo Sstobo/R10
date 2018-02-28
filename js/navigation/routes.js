@@ -8,7 +8,7 @@ import Faves from "./../scenes/Faves"
 import Session from "./../scenes/Session"
 
 export default createRouter(() => ({
-  faves: () => Faves,
+  // faves: () => Faves,
   about: () => About,
   layout: () => NavigationLayout,
   schedule: () => Schedule,
