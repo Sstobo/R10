@@ -43,6 +43,13 @@ class NavigationLayout extends Component {
           initialRoute={Router.getRoute('faves')}
         />
       </TabItem>
+      <TabItem id="faves" title="session"  renderTitle={this.renderTitle} renderIcon={(isSelected) => this.renderIcon(isSelected, 'ios-heart')}>
+        <StackNavigation
+          id="session"
+          navigatorUID="session"
+          initialRoute={Router.getRoute('session')}
+        />
+      </TabItem>
     </TabNavigation>
   
   );

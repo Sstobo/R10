@@ -2,19 +2,44 @@
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
 // import { View, Text, StyleSheet } from 'react-native';
-
+import {connect } from 'react-redux'
 import Session from "./Session";
+import  { fetchSession}  from "./../../redux/modules/session"
 
 // create a component
 class SessionContainer extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
+
+  componentDidMount() {
+    this.props.dispatch(fetchSession())
+    }
+  
+      static route = {
+        navigationBar: {
+          title: 'Session',
+        }
+      }
+
+
   render() {
-    return <Session />;
+    if (this.props.loading) {
+      return (
+       <ActivityIndicator animating={true} size="large" color="black" style={{marginTop: 44}}/>
+      );
+    } else {
+    return (
+    
+    <Session data={this.props.data}/> 
+    )
+   }
   }
 }
 
 //make this component available to the app
-export default SessionContainer;
+const mapStateToProps = state => ({
+  loading: state.session.loading,
+  data: state.session.data
+});
+
+export default connect(mapStateToProps)(SessionContainer);
+
+
