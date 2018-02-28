@@ -36,13 +36,13 @@ class NavigationLayout extends Component {
           initialRoute={Router.getRoute('about')}
         />
       </TabItem>
-      {/* <TabItem id="faves" title="faves"  renderTitle={this.renderTitle} renderIcon={(isSelected) => this.renderIcon(isSelected, 'ios-heart')}>
+      <TabItem id="faves" title="faves"  renderTitle={this.renderTitle} renderIcon={(isSelected) => this.renderIcon(isSelected, 'ios-heart')}>
         <StackNavigation
           id="faves"
           navigatorUID="faves"
           initialRoute={Router.getRoute('faves')}
         />
-      </TabItem> */}
+      </TabItem>
       <TabItem id="session" title="session"  renderTitle={this.renderTitle} renderIcon={(isSelected) => this.renderIcon(isSelected, 'ios-american-football-outline')}>
         <StackNavigation
           id="session"

@@ -1,18 +1,16 @@
 //import liraries
 import React, { Component } from "react";
-// import PropTypes from 'prop-types';
-// import { View, Text, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 import {connect } from 'react-redux'
 import Session from "./Session";
 import  { fetchSession}  from "./../../redux/modules/session"
-
+import {  AppRegistry,View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 // create a component
 class SessionContainer extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchSession())
     }
-  
       static route = {
         navigationBar: {
           title: 'Session',
@@ -21,6 +19,7 @@ class SessionContainer extends Component {
 
 
   render() {
+
     if (this.props.loading) {
       return (
        <ActivityIndicator animating={true} size="large" color="black" style={{marginTop: 44}}/>

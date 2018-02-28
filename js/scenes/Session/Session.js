@@ -5,14 +5,11 @@ import { View, Text, SectionList  } from "react-native";
 import { styles } from "./styles";
 
 // create a component
-const Session = () => (
+const Session = ({data}) => (
   <View>
   <SectionList
-  sections={[
-    {title: 'ADP', data: ['Bob', 'Alice']},
-    {title: 'WDP', data: ['Anne', 'Mary', 'Joe']},
-  ]}
-  renderItem={({ item }) => <Text>{item}</Text>}
+  sections={data}
+  renderItem={({ item }) => <Text>{item.title}</Text>}
   renderSectionHeader={({ section }) => <Text>{section.title}</Text>}
 />
     <Text>Session SCENE</Text>

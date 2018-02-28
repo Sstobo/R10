@@ -14,7 +14,7 @@ import { styles } from "./styles";
 // create a component
 const Faves = () => (
   <View style={styles.container}>
-    <Text>Faves SCENE</Text>
+    <Text>Faves SCENE test test</Text>
   </View>
 );
 

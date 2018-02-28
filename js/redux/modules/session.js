@@ -1,3 +1,5 @@
+import {formatSessionData} from './../helpers/dataReshaper'
+
 const SESSION_URL =
   "https://r10app-95fea.firebaseio.com/sessions.json";
 const SESSION_LOADING = "SESSION_LOADING";
@@ -19,13 +21,15 @@ const sessionError = error => ({
   payload: error
 });
 
+
 export const fetchSession = () => dispatch => {
   dispatch(sessionLoading()); // set loading icon before fetching the data
 
   fetch(SESSION_URL)
     .then(res => res.json())
-    .then(data => dispatch(getSession(data)))
-    .catch(err => dispatch(sessionError(err)));
+    .then(data => dispatch(getSession(formatSessionData(data))))
+    .catch(err => dispatch(sessionError(err)))
+
 };
 
 // REDUCER
