@@ -3,10 +3,11 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { View, Text, SectionList  } from "react-native";
 import { styles } from "./styles";
-
+// import Moment from 'react-moment';
 // create a component
 const Schedule = ({data}) => (
   <View>
+
   <SectionList
   sections={data}
   renderItem={({ item }) => <Text>{item.title}</Text>}
