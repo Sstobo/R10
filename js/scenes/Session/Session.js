@@ -13,3 +13,5 @@ const Session = () => (
 );
 
 export default Session;
+
+// use the helper function mandy shared

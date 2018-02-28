@@ -44,6 +44,8 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		77EBE45321BE48AF9A67AF03 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80581E86E6444C028F73581D /* Zocial.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		96F1D6A7204633F600B7D438 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96F1D67F204633C600B7D438 /* Montserrat-Light.ttf */; };
+		96F1D6A8204633F600B7D438 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96F1D6A6204633C700B7D438 /* Montserrat-Regular.ttf */; };
 		A0D4ECA047DD424BB6CC00E0 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4DB070D21534AC697DAD4FC /* Ionicons.ttf */; };
 		AD56C72E00054E8B9F9F9119 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 099D6788B4F24FFFACFE92A2 /* EvilIcons.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -368,6 +370,8 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8463D45B20FB44FD80901AEA /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		8E0FA20BDB3B44C89BB94ACD /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		96F1D67F204633C600B7D438 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "../js/assets/fonts/Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		96F1D6A6204633C700B7D438 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../js/assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		A4DB070D21534AC697DAD4FC /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		A6D39FDE125844C5A890E1B1 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
@@ -497,6 +501,8 @@
 				099D6788B4F24FFFACFE92A2 /* EvilIcons.ttf */,
 				7350E7FC58914DF9B7383667 /* Feather.ttf */,
 				CDC3770F63E3492887116738 /* FontAwesome.ttf */,
+				96F1D67F204633C600B7D438 /* Montserrat-Light.ttf */,
+				96F1D6A6204633C700B7D438 /* Montserrat-Regular.ttf */,
 				6250345351154C5697A8526D /* Foundation.ttf */,
 				A4DB070D21534AC697DAD4FC /* Ionicons.ttf */,
 				DDCB28BCD0E34FA8A0784F84 /* MaterialCommunityIcons.ttf */,
@@ -1127,6 +1133,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96F1D6A7204633F600B7D438 /* Montserrat-Light.ttf in Resources */,
+				96F1D6A8204633F600B7D438 /* Montserrat-Regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				DBA0619099E4442BBB67F1A1 /* Entypo.ttf in Resources */,

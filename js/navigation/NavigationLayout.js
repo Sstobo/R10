@@ -6,7 +6,7 @@ import {
   TabNavigationItem as TabItem,
 } from '@expo/ex-navigation';
 import Router from "./../navigation/routes"
-import {colors} from "./../config/styleConstants"
+import {colors, typography} from "./../config/styleConstants"
 import Icon from 'react-native-vector-icons/Ionicons'
 
 class NavigationLayout extends Component {
@@ -21,7 +21,7 @@ class NavigationLayout extends Component {
       
       <TabNavigation id="main" navigatorUID="main" tabBarColor={colors.black} initialTab="about" >
 
-      <TabItem id="schedule" title="schedule" renderTitle={this.renderTitle} renderIcon={(isSelected) => this.renderIcon(isSelected, 'ion-ios-calendar-outline')} >
+      <TabItem id="schedule" title="schedule" renderTitle={this.renderTitle} renderIcon={(isSelected) => this.renderIcon(isSelected, 'ios-calendar')} >
 
         <StackNavigation
           id="schedule"
@@ -29,14 +29,14 @@ class NavigationLayout extends Component {
           initialRoute={Router.getRoute('schedule')}
         />
       </TabItem>
-      <TabItem id="about" title="about"  renderTitle={this.renderTitle}>
+      <TabItem id="about" title="about"  renderTitle={this.renderTitle}  renderIcon={(isSelected) => this.renderIcon(isSelected, 'ios-alert')}>
         <StackNavigation
           id="about"
           navigatorUID="about"
           initialRoute={Router.getRoute('about')}
         />
       </TabItem>
-      <TabItem id="faves" title="faves"  renderTitle={this.renderTitle}>
+      <TabItem id="faves" title="faves"  renderTitle={this.renderTitle} renderIcon={(isSelected) => this.renderIcon(isSelected, 'ios-heart')}>
         <StackNavigation
           id="faves"
           navigatorUID="faves"
@@ -50,12 +50,14 @@ class NavigationLayout extends Component {
 
 renderTitle(isSelected, title){
   
-  return <Text style={{color: isSelected ? colors.white : colors.mediumGrey}}>{title}</Text>
+  return <Text style={{fontFamily: typography.fontMain, color: isSelected ? colors.white : colors.mediumGrey}}>{title}</Text>
   }
 
 renderIcon(isSelected, iconName) {
-  return  <Text style={{color: isSelected ? colors.white : colors.mediumGrey}}>{iconName}</Text>
-}
+
+  return <Icon name={iconName} size={20} color={isSelected ? colors.white : colors.mediumGrey} />    
 }
 
-export default NavigationLayout;
+}
+
+export default NavigationLayout;  

@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
 container: {
   margin: 14,
   marginTop: 14,
-  fontFamily: "Montserrat-Light",
+  
 },
 listWrapper: {
   marginTop: 24
@@ -17,7 +17,8 @@ aboutSubLine: {
 aboutText: {
   fontSize: 18,
   marginTop: 12,
-  marginBottom: 12
+  marginBottom: 12,
+  // fontFamily: 'Montserrat',
 },
 menuTitlesAbout: {
   fontSize: 18,
