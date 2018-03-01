@@ -1,23 +1,28 @@
 //import liraries
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-import {  AppRegistry,View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { AppRegistry, View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 
-import Faves from "./Faves";
+import Faves from './Faves';
 
 // create a component
 class FavesContainer extends Component {
-  constructor() {
-    super();
-    this.state = { 
-      loading: true,
-      data: ["Test"],
-    }
-  }
-  
-  render() {
-    return <Faves />;
-  }
+	constructor() {
+		super();
+		this.state = {
+			loading: true,
+			data: ['Test']
+		};
+	}
+	static route = {
+		navigationBar: {
+			title: 'Faves',
+			tintColor: 'grey'
+		}
+	};
+	render() {
+		return <Faves />;
+	}
 }
 
 //make this component available to the app
