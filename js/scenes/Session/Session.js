@@ -9,10 +9,12 @@ const Session = ({data}) => (
   
   <View>
     <Text>{data.item.location}</Text>
- <Text>{data.item.title}</Text>
- <Text>{data.item.start_time}</Text>
- <Text>{data.item.description}</Text>
-<Text> Presented by: </Text>
+    <Text>{data.item.title}</Text>
+    <Text>{data.item.start_time}</Text>
+    <Text>{data.item.description}</Text>
+    <Text>{data.item.speaker}</Text>
+    <Text> Presented by: </Text>
+
 
 
   </View>

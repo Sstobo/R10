@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 import {connect } from 'react-redux'
 import {  AppRegistry,View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import Schedule from "./Schedule"
-import  { fetchSchedule}  from "./../../redux/modules/schedule"
-// create a component
+import  {fetchSchedule}  from "./../../redux/modules/schedule"
+
+
+
 class ScheduleContainer extends Component {
 
   componentDidMount() {
@@ -26,7 +28,6 @@ class ScheduleContainer extends Component {
       );
     } else {
     return (
-    
     <Schedule data={this.props.data}/> 
     )
    }
