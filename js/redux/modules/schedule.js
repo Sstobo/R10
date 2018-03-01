@@ -1,8 +1,9 @@
+import {formatSessionData} from './../helpers/dataReshaper'
 const SCHEDULE_URL =
-  "https://r10app-95fea.firebaseio.com/code_of_conduct.json";
-const SCHEDULE_LOADING = "GET_CODE_OF_CONDUCT_LOADING";
-const SCHEDULE_SUCCESS = "GET_CODE_OF_CONDUCT_SUCCESS";
-const SCHEDULE_ERROR = "GET_CODE_OF_CONDUCT_ERROR";
+"https://r10app-95fea.firebaseio.com/sessions.json";
+const SCHEDULE_LOADING = "SCHEDULE_LOADING";
+const SCHEDULE_SUCCESS = "SCHEDULE_SUCCESS";
+const SCHEDULE_ERROR = "SCHEDULE_ERROR";
 
 // ACTION CREATORS - FUNCTIONS THAT RETURN OBJECT
 const scheduleLoading = () => ({
@@ -24,7 +25,7 @@ export const fetchSchedule = () => dispatch => {
 
   fetch(SCHEDULE_URL)
     .then(res => res.json())
-    .then(data => dispatch(getSchedule(data)))
+    .then(data => dispatch(getSchedule(formatSessionData(data))))
     .catch(err => dispatch(scheduleError(err)));
 };
 

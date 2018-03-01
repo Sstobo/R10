@@ -16,7 +16,8 @@ import { Text, View, AppRegistry } from "react-native";
 import NavigationLayout from './navigation/NavigationLayout'
 import Router from "./navigation/routes"
 import Store from "./redux/store"
-import About from "./scenes/About/";
+import About from "./scenes/About";
+import Session from "./scenes/Session"
 
 const navigationContext = new NavigationContext({
     router: Router,
