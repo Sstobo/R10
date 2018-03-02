@@ -28,7 +28,7 @@ class SessionContainer extends Component {
 			.then(res => res.json())
 			.then(name => {
 				let thisPerson = formatDataObject(name);
-				this.setState({ speaker: thisPerson.name, image: thisPerson.image });
+				this.setState({ speaker: thisPerson, image: thisPerson.image });
 			})
 			.catch(err => err);
 	}

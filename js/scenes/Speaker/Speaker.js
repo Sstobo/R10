@@ -1,13 +1,17 @@
-//import liraries
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
-import { styles } from './styles';
+import React from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { removeSpeaker } from './../../redux/helpers/navigationHelpers';
 
-// create a component
-const Speaker = () => (
+const Speaker = ({ speakerData }) => (
 	<View>
-		<Text>Speaker SCENE</Text>
+		<TouchableOpacity onPress={() => removeSpeaker()}>
+			<Icon active name="ios-close" color="black" size={40} />
+		</TouchableOpacity>
+		<View>
+			<Text> {speakerData.name} </Text>
+			<Text> {speakerData.bio} </Text>
+		</View>
 	</View>
 );
 
