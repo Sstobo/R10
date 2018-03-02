@@ -1,19 +1,27 @@
-//import liraries
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-// import { View, Text, StyleSheet } from 'react-native';
-
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { AppRegistry, View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { fetchSpeaker } from './../../redux/modules/speaker';
 import Speaker from './Speaker';
 
-// create a component
 class SpeakerContainer extends Component {
+	componentDidMount() {
+		this.props.dispatch(fetchSpeaker());
+	}
 	constructor() {
 		super();
 	}
+
 	render() {
-		return <Speaker />;
+		console.log(this.props.route.params.speakerData);
+		return <Speaker speakerData={this.props.route.params.speakerData} />;
 	}
 }
 
-//make this component available to the app
-export default SpeakerContainer;
+const mapStateToProps = state => ({
+	loading: state.speaker.loading,
+	data: state.speaker.data
+});
+
+export default connect(mapStateToProps)(SpeakerContainer);
