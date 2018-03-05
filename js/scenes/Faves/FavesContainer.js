@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import realm, { queryFaves } from "../../config/models";
 import { fetchSomeFaves } from "../../redux/modules/faves";
-import { formatSessionData } from "../../redux/helpers";
+import { formatSessionData } from "../../redux/helpers/dataReshaper";
 
 import Faves from "./Faves";
 
