@@ -12,6 +12,16 @@ class SpeakerContainer extends Component {
 	constructor() {
 		super();
 	}
+	// static route = {
+	// 	navigationBar: {
+	// 		title: 'Speaker',
+	// 		titleTextColor: 'white',
+	// 		tintColor: 'black'
+	// 	},
+	// 	titleStyle: {
+	// 		color: 'black'
+	// 	}
+	// };
 
 	render() {
 		console.log(this.props.route.params.speakerData);
