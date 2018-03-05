@@ -3,6 +3,8 @@ import { Text, View } from 'react-native';
 import { styles } from './styles';
 import { formatUnixDate } from './../../redux/helpers/dataReshaper';
 
+
+
 const Faves = ({ faves, sessionData }) => {
 	console.log(faves);
 	const favesToRender = sessionData.filter(session => faves[session.session_id] === 'true');
