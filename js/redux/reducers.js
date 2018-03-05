@@ -4,11 +4,13 @@ import aboutReducer from './modules/about';
 import sessionReducer from './modules/session';
 import scheduleReducer from './modules/schedule';
 import speakerReducer from './modules/speaker';
+import favesReducer from './modules/faves'
 
 export default (rootReducer = combineReducers({
 	navigation: NavigationReducer,
 	about: aboutReducer,
 	session: sessionReducer,
 	schedule: scheduleReducer,
-	speaker: speakerReducer
+	speaker: speakerReducer,
+	faves: favesReducer
 }));
