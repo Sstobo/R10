@@ -11,7 +11,7 @@ const FaveSchema = {
 
 const realm = new Realm({ schema: [FaveSchema] });
 
-export const queryFaves = () => {
+export const queryFave = () => {
   return realm.objects("Fave");
 };
 

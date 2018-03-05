@@ -6,9 +6,7 @@ import { formatUnixDate } from './../../redux/helpers/dataReshaper';
 
 
 const Faves = ({ faves, sessionData }) => {
-	console.log(faves);
-	const favesToRender = sessionData.filter(session => faves[session.session_id] === 'true');
-
+	
 	return (
 		<View>
 			{favesToRender.map((fave, index) => {

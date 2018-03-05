@@ -22,3 +22,9 @@ export const formatDataObject = (data) => {
       minutes === 0 ? "00" : minutes
     } ${hours > 12 ? "PM" : "AM"}`;
   };
+
+  export const formatFaves = (faves, data) => {
+    const arrayOfFaves = Object.values(faves);
+    const filteredFaves = formatSessionData(_filterFaves(arrayOfFaves, data));
+    return filteredFaves;
+  };
