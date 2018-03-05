@@ -2,29 +2,31 @@ import React from "react";
 import { Text, View } from "react-native";
 import { styles } from "./styles";
 import { formatUnixDate } from './../../redux/helpers/dataReshaper';
+import { SectionList, View, Text } from "react-native";
 
-const Faves = ({ faves, sessionData }) => {
-  const Faves = sessionData.filter(
-    session => faves[session.session_id] === "true"
-  );
 
-  return (
-    <View>
-      {theseFaves.map((fave, index) => {
-        return (
-          <View key={index} style={styles.event}>
-            <Text style={styles.time}>
-			{formatUnixDate(fave.start_time)}
-            </Text>
-            <View>
-              <Text>{fave.title}</Text>
-              <Text>{fave.location}</Text>
-            </View>
-          </View>
-        );
-      })}
-    </View>
-  );
-};
+	const Faves = ({ data, loading, error, currentUID, style }) => {
+		if (error) {
+		  return <View />;
+		}
+		return (
+		  <SectionList
+			renderItem={({ item }) => (
+			  <ListItem item={item} currentUID={currentUID} style={style} />
+			)}
+			renderSectionHeader={({ section }) => (
+			  <Text style={style.header}>
+				{formatUnixDate(section.title)}
+			  </Text>
+			)}
+			sections={data}
+			keyExtractor={item => {
+			  return item.session_id;
+			}}
+		  />
+		);
+	  };
+
+
 
 export default Faves;
