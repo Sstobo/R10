@@ -1,68 +1,68 @@
-import {formatSessionData} from './../helpers/dataReshaper'
-const SCHEDULE_URL =
-"https://r10app-95fea.firebaseio.com/sessions.json";
-const SCHEDULE_LOADING = "SCHEDULE_LOADING";
-const SCHEDULE_SUCCESS = "SCHEDULE_SUCCESS";
-const SCHEDULE_ERROR = "SCHEDULE_ERROR";
+import { formatSessionData } from '../helpers/dataReshaper';
 
-// ACTION CREATORS - FUNCTIONS THAT RETURN OBJECT
-const scheduleLoading = () => ({
-  type: SCHEDULE_LOADING
+const SESSIONS_URL = 'https://r10app-95fea.firebaseio.com/sessions.json';
+
+const SESSIONS_LOADING = 'SESSIONS_LOADING';
+const SESSIONS_SUCCESS = 'SESSIONS_SUCCESS';
+const SESSIONS_ERROR = 'SESSIONS_ERROR';
+
+const sessionsLoading = () => ({
+	type: SESSIONS_LOADING
 });
 
-const getSchedule = data => ({
-  type:SCHEDULE_SUCCESS,
-  payload: data
+const sessionsSuccess = data => ({
+	type: SESSIONS_SUCCESS,
+	payload: data
 });
 
-const scheduleError = error => ({
-  type: SCHEDULE_ERROR,
-  payload: error
+const sessionsError = err => ({
+	type: SESSIONS_ERROR,
+	payload: err
 });
 
-export const fetchSchedule = () => dispatch => {
-  dispatch(scheduleLoading()); // set loading icon before fetching the data
+export const getSessions = () => dispatch => {
+	dispatch(sessionsLoading());
 
-  fetch(SCHEDULE_URL)
-    .then(res => res.json())
-    .then(data => dispatch(getSchedule(formatSessionData(data))))
-    .catch(err => dispatch(scheduleError(err)));
+	fetch(SESSIONS_URL)
+		.then(res => res.json())
+		// .then(data => dispatch(sessionsSuccess(formatSessionData(data))))
+		.then(data => dispatch(sessionsSuccess(data)))
+		.catch(err => dispatch(sessionsError(err)));
 };
 
-// REDUCER
+//reducer
+
 export default (
-  state = {
-    // initial state
-    loading: false,
-    data: [],
-    error: ""
-  },
-  action
+	state = {
+		loading: false,
+		sessionData: [],
+		error: ''
+	},
+	action
 ) => {
-  switch (action.type) {
-    case SCHEDULE_LOADING: {
-      return {
-        ...state,
-        loading: true,
-        error: "" // if previously there was an error, clear the error
-      };
-    }
-    case SCHEDULE_SUCCESS: {
-      return {
-        ...state,
-        data: action.payload,
-        loading: false,
-        error: "" // if previously there was an error, clear the error
-      };
-    }
-    case SCHEDULE_ERROR: {
-      return {
-        ...state,
-        loading: false,
-        error: action.payload // if previously there was an error, clear the error
-      };
-    }
-    default:
-      return state;
-  }
+	switch (action.type) {
+		case SESSIONS_LOADING: {
+			return {
+				...state,
+				loading: true,
+				error: ''
+			};
+		}
+		case SESSIONS_SUCCESS: {
+			return {
+				...state,
+				loading: false,
+				sessionData: action.payload,
+				error: ''
+			};
+		}
+		case SESSIONS_ERROR: {
+			return {
+				loading: false,
+				error: action.payload
+			};
+		}
+		default:
+			return state;
+	}
 };

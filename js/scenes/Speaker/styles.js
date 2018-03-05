@@ -1,9 +1,18 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+	button: {
+		padding: 12,
+		borderRadius: 22,
+		backgroundColor: 'purple',
+		width: 200,
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
 	container: {
-		margin: 14,
-		marginTop: 24
+		marginTop: 24,
+		alignItems: 'center',
+		justifyContent: 'center'
 	},
 	title: {
 		color: 'black',
@@ -26,8 +35,11 @@ export const styles = StyleSheet.create({
 	},
 	link: {
 		fontSize: 18,
-		color: 'purple',
-		marginBottom: 24,
+		padding: 12,
+		color: 'white',
+		borderRadius: 12,
+		backgroundColor: 'purple',
+		margin: 24,
 		fontFamily: 'Montserrat'
 	},
 	speaker: {

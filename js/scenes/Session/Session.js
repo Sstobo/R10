@@ -1,39 +1,84 @@
-//import liraries
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { View, Text, SectionList, FlatList, Image, TouchableHighlight } from 'react-native';
+import { Text, View, TouchableHighlight, Image, TouchableOpacity, Button, ScrollView } from 'react-native';
+import propTypes from 'prop-types';
+import { createFave, deleteFave } from '../../config/models';
+import { formatUnixDate } from '../../redux/helpers/dataReshaper';
+import { goToSpeaker } from '../../redux/helpers/navigationHelpers';
 import { styles } from './styles';
-import { formatUnixDate } from './../../redux/helpers/dataReshaper';
-import { Platform } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { goToSpeaker } from './../../redux/helpers/navigationHelpers';
+class Session extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			addToFave: true,
+			removeFromFave: false
+		};
 
-// create a component
-const Session = ({ data, speaker, image }) => (
-	<View style={styles.container}>
-		<View style={styles.headWrap}>
-			<Text style={styles.location}>{data.item.location}</Text>
-			<Icon
-				color="red"
-				size={30}
-				name={Platform.select({
-					ios: 'ios-heart',
-					android: 'md-heart'
-				})}
-			/>
-		</View>
-		<Text style={styles.title}>{data.item.title}</Text>
-		<Text style={styles.date}>{formatUnixDate(data.item.start_time)}</Text>
-		<Text style={styles.description}>{data.item.description}</Text>
-		<Text style={styles.presented}> Presented by: </Text>
+		this.renderAddToFave = this.renderAddToFave.bind(this);
+		this.renderRemoveFave = this.renderRemoveFave.bind(this);
+	}
 
-		<TouchableHighlight onPress={() => goToSpeaker(speaker)}>
-			<View style={{ flexDirection: 'row' }}>
-				<Text style={styles.speaker}>{speaker.name}</Text>
-				<Image style={{ width: 66, height: 66, marginLeft: 24, borderRadius: 33 }} source={{ uri: image }} />
+	renderAddToFave() {
+		createFave(this.props.list.item.session_id);
+		this.setState({
+			addToFave: !this.state.addToFave,
+			removeFromFave: !this.state.addToFave
+		});
+	}
+
+	renderRemoveFave() {
+		deleteFave(this.props.list.item.session_id);
+		this.setState({
+			removeFromFave: !this.state.removeFromFave
+		});
+	}
+
+	render() {
+		const { list, name, faves } = this.props;
+		console.log('FAVES $$$$ ', faves, 'list$#$$% ', list, 'name @#%@', name);
+		return (
+			<View style={styles.container}>
+				<ScrollView>
+					<Text style={styles.location}>{list.item.location}</Text>
+					<Text style={styles.title}>{list.item.title}</Text>
+					<Text style={styles.time}>{formatUnixDate(list.item.start_time)}</Text>
+					<Text style={styles.description}>{list.item.description}</Text>
+					<TouchableHighlight onPress={() => goToSpeaker(name)}>
+						<View>
+							<Text style={styles.location}>Presented by:</Text>
+							<View
+								style={{
+									flexDirection: 'row',
+									alignItems: 'center',
+									marginBottom: 24,
+									borderBottomWidth: 1,
+									borderBottomColor: 'lightgrey'
+								}}
+							>
+								<Image source={{ uri: name.image }} style={styles.image} />
+								<Text style={styles.title}> {name.name}</Text>
+							</View>
+						</View>
+					</TouchableHighlight>
+
+					{faves[name.session] === undefined && (
+						<View style={{ justifyContent: 'center', alignItems: 'center' }}>
+							<TouchableOpacity onPress={this.renderAddToFave} style={styles.button}>
+								<Text style={{ color: 'white' }}>Add to Faves</Text>
+							</TouchableOpacity>
+						</View>
+					)}
+
+					{faves[name.session] && (
+						<View style={{ justifyContent: 'center', alignItems: 'center' }}>
+							<TouchableOpacity onPress={this.renderRemoveFave} style={styles.button}>
+								<Text style={{ color: 'white' }}>Remove From Faves</Text>
+							</TouchableOpacity>
+						</View>
+					)}
+				</ScrollView>
 			</View>
-		</TouchableHighlight>
-	</View>
-);
+		);
+	}
+}
 
 export default Session;

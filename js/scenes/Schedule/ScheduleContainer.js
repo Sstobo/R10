@@ -1,35 +1,36 @@
-//import liraries
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { AppRegistry, View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { getSessions } from '../../redux/modules/schedule';
+import { formatSessionData } from '../../redux/helpers/dataReshaper';
+import LinearGradient from '../../components/LinearGradient';
 import Schedule from './Schedule';
-import { fetchSchedule } from './../../redux/modules/schedule';
 
 class ScheduleContainer extends Component {
-	componentDidMount() {
-		this.props.dispatch(fetchSchedule());
+	constructor(props) {
+		super(props);
 	}
+
 	static route = {
 		navigationBar: {
 			title: 'Schedule',
-			tintColor: 'grey'
+			tintColor: 'grey',
+			renderBackground: LinearGradient
 		}
 	};
 
+	componentDidMount() {
+		this.props.dispatch(getSessions());
+	}
+
 	render() {
-		if (this.props.loading) {
-			return <ActivityIndicator animating={true} size="large" color="black" style={{ marginTop: 44 }} />;
-		} else {
-			return <Schedule data={this.props.data} />;
-		}
+		const { loading, sessionData } = this.props;
+		return <Schedule data={formatSessionData(sessionData)} />;
 	}
 }
 
-//make this component available to the app
 const mapStateToProps = state => ({
 	loading: state.schedule.loading,
-	data: state.schedule.data
+	sessionData: state.schedule.sessionData
 });
 
 export default connect(mapStateToProps)(ScheduleContainer);

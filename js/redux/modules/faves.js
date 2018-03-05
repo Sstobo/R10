@@ -1,36 +1,33 @@
-import { queryFaves } from '../../config/models';
+import realm, { queryFaves } from '../../config/models';
 
-const GET_FAVES_LOADING = 'GET_FAVES_LOADING';
-const GET_FAVES = 'GET_FAVES';
-const GET_FAVES_ERROR = 'GET_FAVES_ERROR';
+GET_FAVES = 'GET_FAVES';
 
-const getFavesLoading = () => ({ type: GET_FAVES_LOADING });
 const getFaves = faves => ({
 	type: GET_FAVES,
 	payload: faves
 });
-const getFavesError = error => ({
-	type: GET_FAVES_ERROR,
-	payload: error
-});
 
-export const fetchFaves = () => dispatch => {
-	dispatch(getFavesLoading());
-	const faves = queryFaves();
-	console.log('#############', faves);
+export const letsFetchSomeFaves = () => dispatch => {
+	const data = queryFaves();
+	const faves = {};
+	data.map((item, key) => (faves[item.id] = 'true'));
 	dispatch(getFaves(faves));
 };
 
-export default (state = { loading: false, faves: {}, error: '' }, action) => {
+//reducer
+
+export default (
+	state = {
+		faves: ''
+	},
+	action
+) => {
 	switch (action.type) {
-		case GET_FAVES_LOADING: {
-			return { ...state, loading: true };
-		}
 		case GET_FAVES: {
-			return { ...state, loading: false, faves: action.payload };
-		}
-		case GET_FAVES_ERROR: {
-			return { ...state, loading: false, error: action.payload };
+			return {
+				...state,
+				faves: action.payload
+			};
 		}
 		default:
 			return state;

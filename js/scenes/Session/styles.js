@@ -1,6 +1,21 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+	button: {
+		padding: 12,
+		borderRadius: 22,
+		backgroundColor: 'purple',
+		width: 200,
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+	image: {
+		height: 60,
+		width: 60,
+		borderRadius: 30,
+		marginRight: 24,
+		marginBottom: 14
+	},
 	container: {
 		margin: 14,
 		marginTop: 24
@@ -27,7 +42,9 @@ export const styles = StyleSheet.create({
 		fontSize: 18,
 		fontFamily: 'Montserrat'
 	},
-	// p
+	time: {
+		color: 'red'
+	},
 	description: {
 		fontSize: 16,
 		lineHeight: 24,
