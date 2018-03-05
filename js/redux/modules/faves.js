@@ -1,31 +1,36 @@
-import realm, { queryFaves } from "../../config/models";
+import { queryFaves } from "../../config/model";
 
-GET_FAVES = "GET_FAVES";
+const GET_FAVES_LOADING = "GET_FAVES_LOADING";
+const GET_FAVES = "GET_FAVES";
+const GET_FAVES_ERROR = "GET_FAVES_ERROR";
 
+const getFavesLoading = () => ({ type: GET_FAVES_LOADING });
 const getFaves = faves => ({
   type: GET_FAVES,
   payload: faves
 });
+const getFavesError = error => ({
+  type: GET_FAVES_ERROR,
+  payload: error
+});
 
 export const fetchFaves = () => dispatch => {
-  const data = queryFaves();
-  const faves = {};
-  data.map((item, key) => (faves[item.id] = "true"));
+  dispatch(getFavesLoading());
+  const faves = queryFaves();
+  console.log(faves);
   dispatch(getFaves(faves));
 };
 
-export default (
-  state = {
-    faves: ""
-  },
-  action
-) => {
+export default (state = { loading: false, faves: {}, error: "" }, action) => {
   switch (action.type) {
+    case GET_FAVES_LOADING: {
+      return { ...state, loading: true };
+    }
     case GET_FAVES: {
-      return {
-        ...state,
-        faves: action.payload
-      };
+      return { ...state, loading: false, faves: action.payload };
+    }
+    case GET_FAVES_ERROR: {
+      return { ...state, loading: false, error: action.payload };
     }
     default:
       return state;
