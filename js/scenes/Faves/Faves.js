@@ -1,18 +1,30 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { View, Text, FlatList, Image, ScrollView } from 'react-native';
+import React from "react";
+import { Text, View } from "react-native";
+import { styles } from "./styles";
+import { formatUnixDate } from './../../redux/helpers/dataReshaper';
 
-import { styles } from './styles';
+const Faves = ({ faves, sessionData }) => {
+  const favesToRender = sessionData.filter(
+    session => faves[session.session_id] === "true"
+  );
 
-// create a component
-const Faves = () => (
-	<View>
-		<TouchableOpacity onPress={() => removeSpeaker()}>
-			<Icon active name="ios-close" color="black" size={40} />
-		</TouchableOpacity>
-		<View>
-			<Text> {speakerData.name} </Text>
-			<Text> {speakerData.bio} </Text>
-		</View>
-	</View>
-);
+  return (
+    <View>
+      {favesToRender.map((fave, index) => {
+        return (
+          <View key={index} style={styles.event}>
+            <Text style={styles.time}>
+			{formatUnixDate(fave.start_time)}
+            </Text>
+            <View>
+              <Text>{fave.title}</Text>
+              <Text>{fave.location}</Text>
+            </View>
+          </View>
+        );
+      })}
+    </View>
+  );
+};
+
+export default Faves;

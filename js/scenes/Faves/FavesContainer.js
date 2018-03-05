@@ -1,18 +1,14 @@
-//import liraries
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import { fetchFaves } from "../../redux/modules/faves";
 import { AppRegistry, View, Text, StyleSheet, ActivityIndicator } from 'react-native';
-
+import { formatSessionData } from "../../redux/helpers";
+import { connect } from "react-redux";
 import Faves from './Faves';
 
 // create a component
 class FavesContainer extends Component {
 	constructor() {
 		super();
-		this.state = {
-			loading: true,
-			data: ['Test']
-		};
 	}
 	static route = {
 		navigationBar: {
@@ -20,10 +16,19 @@ class FavesContainer extends Component {
 			tintColor: 'grey'
 		}
 	};
+componentDidMount() {
+	this.props.dispatch(fetchFaves());
+}
+
 	render() {
-		return <Faves />;
+		return  <Faves faves={this.props.faves} sessionData={this.props.sessionData} />
 	}
 }
 
-//make this component available to the app
-export default FavesContainer;
+const mapStateToProps = state => ({
+	faves: state.faves.faves,
+	sessionData: state.schedule.sessionData
+  });
+  
+export default connect(mapStateToProps)(FavesContainer);
+// export default FavesContainer;
