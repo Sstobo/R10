@@ -41,7 +41,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getRealmFaves } from '../../redux/modules/faves';
-import { formatFaves } from '../../config/helpers/dataReshaper';
+import { formatFaves } from '../../redux/helpers/dataReshaper';
 import Faves from './Faves';
 
 class FavesContainer extends Component {
@@ -61,7 +61,7 @@ class FavesContainer extends Component {
 
 	render() {
 		const { faves, data } = this.props;
-		const faveSessions = formatAndFilterFaves(faves, data);
+		const faveSessions = formatFaves(faves, data);
 
 		return <Faves faves={faves} data={faveSessions} />;
 	}
