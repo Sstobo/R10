@@ -5,9 +5,12 @@ import { createFave, deleteFave } from '../../config/models';
 import { formatUnixDate } from '../../redux/helpers/dataReshaper';
 import { goToSpeaker } from '../../redux/helpers/navigationHelpers';
 import { styles } from './styles';
+import LinearGradient from '../../components/LinearGradient';
+
 class Session extends Component {
 	constructor(props) {
 		super(props);
+		this.key = 0;
 		this.state = {
 			addToFave: true,
 			removeFromFave: false
@@ -19,6 +22,7 @@ class Session extends Component {
 
 	renderAddToFave() {
 		createFave(this.props.list.item.session_id);
+
 		this.setState({
 			addToFave: !this.state.addToFave,
 			removeFromFave: !this.state.addToFave
@@ -61,7 +65,7 @@ class Session extends Component {
 					</TouchableHighlight>
 
 					{faves[name.session] === undefined && (
-						<View style={{ justifyContent: 'center', alignItems: 'center' }}>
+						<View key={this.key} style={{ justifyContent: 'center', alignItems: 'center' }}>
 							<TouchableOpacity onPress={this.renderAddToFave} style={styles.button}>
 								<Text style={{ color: 'white' }}>Add to Faves</Text>
 							</TouchableOpacity>
@@ -69,7 +73,7 @@ class Session extends Component {
 					)}
 
 					{faves[name.session] && (
-						<View style={{ justifyContent: 'center', alignItems: 'center' }}>
+						<View key={this.key} style={{ justifyContent: 'center', alignItems: 'center' }}>
 							<TouchableOpacity onPress={this.renderRemoveFave} style={styles.button}>
 								<Text style={{ color: 'white' }}>Remove From Faves</Text>
 							</TouchableOpacity>
@@ -81,4 +85,10 @@ class Session extends Component {
 	}
 }
 
-export default Session;
+Session.propTypes = {
+	faves: PropTypes.object.isRequired,
+	toggleFave: PropTypes.func.isRequired,
+	event: PropTypes.object.isRequired
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Session);

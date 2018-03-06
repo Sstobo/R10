@@ -7,7 +7,7 @@ import { styles } from './styles';
 const Speaker = ({ speakerData }) => (
 	<View style={styles.container}>
 		<ScrollView>
-			<View style={{ backgroundColor: 'black', padding: 8 }}>
+			<View style={{ backgroundColor: 'black', height: 1000, padding: 8 }}>
 				<TouchableOpacity onPress={() => removeSpeaker()}>
 					<Icon active name="ios-close" color="white" size={40} />
 				</TouchableOpacity>
