@@ -1,4 +1,6 @@
-import realm, { queryFaves } from '../../config/models';
+import realm, {
+	queryFaves
+} from '../../config/models';
 
 GET_FAVES = 'GET_FAVES';
 
@@ -14,8 +16,6 @@ export const letsFetchSomeFaves = () => dispatch => {
 	dispatch(getFaves(faves));
 };
 
-//reducer
-
 export default (
 	state = {
 		faves: ''
@@ -23,12 +23,13 @@ export default (
 	action
 ) => {
 	switch (action.type) {
-		case GET_FAVES: {
-			return {
-				...state,
-				faves: action.payload
-			};
-		}
+		case GET_FAVES:
+			{
+				return {
+					...state,
+					faves: action.payload
+				};
+			}
 		default:
 			return state;
 	}

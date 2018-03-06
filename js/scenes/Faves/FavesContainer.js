@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import realm, { queryFaves } from "../../config/model";
 import { letsFetchSomeFaves } from '../../redux/modules/faves';
 import { formatSessionData } from '../../redux/helpers/dataReshaper';
 
@@ -10,7 +9,6 @@ class FavesContainer extends Component {
 	constructor(props) {
 		super(props);
 	}
-
 	static route = {
 		navigationBar: {
 			title: 'Faves'

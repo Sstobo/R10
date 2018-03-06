@@ -29,3 +29,4 @@ export const deleteFave = id => {
 };
 
 export default realm;
+

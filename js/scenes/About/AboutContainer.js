@@ -1,12 +1,21 @@
-//import liraries
-import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-import { AppRegistry, View, Text, StyleSheet, ActivityIndicator } from 'react-native';
-import { fetchCodeOfConduct } from './../../redux/modules/about';
+import React, {
+	Component
+} from 'react';
+import {
+	AppRegistry,
+	View,
+	Text,
+	StyleSheet,
+	ActivityIndicator
+} from 'react-native';
+import {
+	fetchCodeOfConduct
+} from './../../redux/modules/about';
 import About from './About';
-// this file creates and shares the props
-import { connect } from 'react-redux';
-// create a component
+import {
+	connect
+} from 'react-redux';
+
 
 class AboutContainer extends Component {
 	componentDidMount() {
@@ -22,9 +31,22 @@ class AboutContainer extends Component {
 
 	render() {
 		if (this.props.loading) {
-			return <ActivityIndicator animating={true} size="large" color="black" style={{ marginTop: 44 }} />;
+			return <ActivityIndicator animating = {
+				true
+			}
+			size = "large"
+			color = "black"
+			style = {
+				{
+					marginTop: 44
+				}
+			}
+			/>;
 		} else {
-			return <About data={this.props.data} />;
+			return <About data = {
+				this.props.data
+			}
+			/>;
 		}
 	}
 }

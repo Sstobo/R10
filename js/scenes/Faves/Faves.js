@@ -5,11 +5,11 @@ import { Text, View } from 'react-native';
 import { styles } from './styles';
 
 const Faves = ({ faves, sessionData }) => {
-	const theseFaves = sessionData.filter(session => faves[session.session_id] === 'true');
+	const theFaves = sessionData.filter(session => faves[session.session_id] === 'true');
 
 	return (
 		<View>
-			{theseFaves.map((fave, index) => {
+			{theFaves.map((fave, index) => {
 				return (
 					<View key={index} style={styles.event}>
 						<Text style={styles.time}>{formatUnixDate(fave.start_time)}</Text>
