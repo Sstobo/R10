@@ -3,7 +3,7 @@ import { AppRegistry, View, Text, StyleSheet, ActivityIndicator } from 'react-na
 import { fetchCodeOfConduct } from './../../redux/modules/about';
 import About from './About';
 import { connect } from 'react-redux';
-
+import LinearGradient from 'react-native-linear-gradient';
 class AboutContainer extends Component {
 	componentDidMount() {
 		this.props.dispatch(fetchCodeOfConduct());

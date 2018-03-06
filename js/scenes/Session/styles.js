@@ -1,6 +1,21 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+	border: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		marginBottom: 24,
+		borderBottomWidth: 1,
+		borderBottomColor: 'lightgrey'
+	},
+	buttonText: {
+		color: 'white'
+	},
+	header: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between'
+	},
 	button: {
 		padding: 12,
 		borderRadius: 22,

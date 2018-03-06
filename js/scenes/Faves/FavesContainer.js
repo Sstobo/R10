@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { letsFetchSomeFaves } from '../../redux/modules/faves';
+import { fetchFaves } from '../../redux/modules/faves';
 import { formatSessionData } from '../../redux/helpers/dataReshaper';
 import LinearGradient from '../../components/LinearGradient';
 import Faves from './Faves';
@@ -18,7 +18,6 @@ class FavesContainer extends Component {
 	};
 
 	componentDidMount() {
-		console.log('#$@$@#');
 		this.props.dispatch(fetchFaves());
 	}
 
