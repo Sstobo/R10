@@ -8,11 +8,12 @@ export const styles = StyleSheet.create({
 	listWrapper: {
 		marginTop: 24
 	},
-	// h1
+
 	aboutSubLine: {
-		fontSize: 26
+		fontSize: 22,
+		marginBottom: 4
 	},
-	// p
+
 	aboutText: {
 		fontSize: 18,
 		marginTop: 12,
@@ -21,7 +22,8 @@ export const styles = StyleSheet.create({
 	},
 	menuTitlesAbout: {
 		fontSize: 18,
-		color: '#9963ea'
+		color: '#9963ea',
+		marginBottom: 4
 	},
 	loadingGif: {},
 	aboutImageContainer: {

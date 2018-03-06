@@ -7,6 +7,8 @@ import { formatUnixDate } from '../../redux/helpers/dataReshaper';
 import { goToSpeaker } from '../../redux/helpers/navigationHelpers';
 import { styles } from './styles';
 import LinearGradient from '../../components/LinearGradient';
+import GradientButton from '../../components/GradientButton';
+
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
 class Session extends Component {
@@ -66,11 +68,16 @@ class Session extends Component {
 							onPress={() =>
 								toggleFaves(list.item.session_id, !Object.keys(faves).includes(list.item.session_id))}
 						>
-							<Text style={styles.buttonText} marginTop={15} marginLeft={50} fontSize={15}>
-								{!!Object.keys(faves).includes(list.item.session_id)
-									? 'Remove Favorite'
-									: 'Add Favorite'}
-							</Text>
+							<GradientButton
+								marginTop={15}
+								marginLeft={50}
+								fontSize={15}
+								buttonText={
+									!!Object.keys(faves).includes(list.item.session_id)
+										? 'Remove Favorite'
+										: 'Add Favorite'
+								}
+							/>
 						</TouchableOpacity>
 					</View>
 				</ScrollView>

@@ -16,4 +16,4 @@ const GradientButton = ({ text }) => (
 	</LinearGradient>
 );
 
-export default GradientButton;
+export default LinearGradient;
