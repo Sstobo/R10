@@ -1,8 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-
-import { colors, typography } from '../config/styles';
+import { colors, typography } from '../config/styleConstants';
 
 const GradientButton = ({ text }) => (
 	<LinearGradient

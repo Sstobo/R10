@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // import realm, { queryFaves } from "../../config/model";
 import { letsFetchSomeFaves } from '../../redux/modules/faves';
 import { formatSessionData } from '../../redux/helpers/dataReshaper';
-
+import LinearGradient from '../../components/LinearGradient';
 import Faves from './Faves';
 
 class FavesContainer extends Component {
@@ -13,7 +13,9 @@ class FavesContainer extends Component {
 
 	static route = {
 		navigationBar: {
-			title: 'Faves'
+			title: 'Faves',
+			tintColor: 'white',
+			renderBackground: LinearGradient
 		}
 	};
 

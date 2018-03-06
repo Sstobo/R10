@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import LinearGradient from '../../components/LinearGradient';
 import { AppRegistry, View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import { fetchCodeOfConduct } from './../../redux/modules/about';
 import About from './About';
@@ -16,7 +16,8 @@ class AboutContainer extends Component {
 	static route = {
 		navigationBar: {
 			title: 'About',
-			tintColor: 'grey'
+			tintColor: 'white',
+			renderBackground: LinearGradient
 		}
 	};
 
