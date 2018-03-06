@@ -3,7 +3,7 @@ const SPEAKER_LOADING = 'SPEAKER_LOADING';
 const SPEAKER_SUCCESS = 'SPEAKER_SUCCESS';
 const SPEAKER_ERROR = 'SPEAKER_ERROR';
 
-// ACTION CREATORS - FUNCTIONS THAT RETURN OBJECT
+
 const speakerLoading = () => ({
 	type: SPEAKER_LOADING
 });
@@ -19,7 +19,7 @@ const speakerError = error => ({
 });
 
 export const fetchSpeaker = () => dispatch => {
-	dispatch(speakerLoading()); // set loading icon before fetching the data
+	dispatch(speakerLoading());
 
 	fetch(SPEAKER_URL)
 		.then(res => res.json())
@@ -27,10 +27,10 @@ export const fetchSpeaker = () => dispatch => {
 		.catch(err => dispatch(speakerError(err)));
 };
 
-// REDUCER
+
 export default (
 	state = {
-		// initial state
+
 		loading: false,
 		data: [],
 		error: ''
@@ -38,28 +38,31 @@ export default (
 	action
 ) => {
 	switch (action.type) {
-		case SPEAKER_LOADING: {
-			return {
-				...state,
-				loading: true,
-				error: '' // if previously there was an error, clear the error
-			};
-		}
-		case SPEAKER_SUCCESS: {
-			return {
-				...state,
-				data: action.payload,
-				loading: false,
-				error: '' // if previously there was an error, clear the error
-			};
-		}
-		case SPEAKER_ERROR: {
-			return {
-				...state,
-				loading: false,
-				error: action.payload // if previously there was an error, clear the error
-			};
-		}
+		case SPEAKER_LOADING:
+			{
+				return {
+					...state,
+					loading: true,
+					error: ''
+				};
+			}
+		case SPEAKER_SUCCESS:
+			{
+				return {
+					...state,
+					data: action.payload,
+					loading: false,
+					error: ''
+				};
+			}
+		case SPEAKER_ERROR:
+			{
+				return {
+					...state,
+					loading: false,
+					error: action.payload
+				};
+			}
 		default:
 			return state;
 	}

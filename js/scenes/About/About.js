@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, FlatList, Image, ScrollView, Animated } from 'react-native';
+import { View, Text, FlatList, Image, ScrollView } from 'react-native';
 
 import { styles } from './styles';
 
@@ -10,7 +10,6 @@ const About = ({ data }) => (
 			<View style={styles.aboutImageContainer}>
 				<Image style={styles.aboutImage} source={require('../../assets/images/r10_logo.png')} />
 			</View>
-
 			<Text style={styles.aboutText}>
 				R10 is a conference that focuses on just abouut any toipic related to dev.
 			</Text>

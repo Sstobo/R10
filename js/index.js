@@ -4,11 +4,9 @@
  * @flow
  */
 import { NavigationContext, NavigationProvider, StackNavigation } from '@expo/ex-navigation';
-
 import { Provider } from 'react-redux';
 import React, { Component } from 'react';
 import { Text, View, AppRegistry } from 'react-native';
-
 import NavigationLayout from './navigation/NavigationLayout';
 import Router from './navigation/routes';
 import Store from './redux/store';
@@ -19,8 +17,6 @@ const navigationContext = new NavigationContext({
 	router: Router,
 	store: Store
 });
-// wrap nav system in stacknav
-
 export default class App extends Component {
 	render() {
 		return (

@@ -4,7 +4,6 @@ const GET_CODE_OF_CONDUCT_LOADING = "GET_CODE_OF_CONDUCT_LOADING";
 const GET_CODE_OF_CONDUCT_SUCCESS = "GET_CODE_OF_CONDUCT_SUCCESS";
 const GET_CODE_OF_CONDUCT_ERROR = "GET_CODE_OF_CONDUCT_ERROR";
 
-// ACTION CREATORS - FUNCTIONS THAT RETURN OBJECT
 const getCodeOfConductLoading = () => ({
   type: GET_CODE_OF_CONDUCT_LOADING
 });
@@ -20,7 +19,7 @@ const getCodeOfConductError = error => ({
 });
 
 export const fetchCodeOfConduct = () => dispatch => {
-  dispatch(getCodeOfConductLoading()); // set loading icon before fetching the data
+  dispatch(getCodeOfConductLoading()); 
 
   fetch(CODE_OF_CONDUCT_URL)
     .then(res => res.json())
@@ -28,10 +27,8 @@ export const fetchCodeOfConduct = () => dispatch => {
     .catch(err => dispatch(getCodeOfConductError(err)));
 };
 
-// REDUCER
 export default (
   state = {
-    // initial state
     loading: false,
     data: [],
     error: ""
@@ -39,28 +36,31 @@ export default (
   action
 ) => {
   switch (action.type) {
-    case GET_CODE_OF_CONDUCT_LOADING: {
-      return {
-        ...state,
-        loading: true,
-        error: "" // if previously there was an error, clear the error
-      };
-    }
-    case GET_CODE_OF_CONDUCT_SUCCESS: {
-      return {
-        ...state,
-        data: action.payload,
-        loading: false,
-        error: "" // if previously there was an error, clear the error
-      };
-    }
-    case GET_CODE_OF_CONDUCT_ERROR: {
-      return {
-        ...state,
-        loading: false,
-        error: action.payload // if previously there was an error, clear the error
-      };
-    }
+    case GET_CODE_OF_CONDUCT_LOADING:
+      {
+        return {
+          ...state,
+          loading: true,
+          error: "" 
+        };
+      }
+    case GET_CODE_OF_CONDUCT_SUCCESS:
+      {
+        return {
+          ...state,
+          data: action.payload,
+          loading: false,
+          error: ""
+        };
+      }
+    case GET_CODE_OF_CONDUCT_ERROR:
+      {
+        return {
+          ...state,
+          loading: false,
+          error: action.payload 
+        };
+      }
     default:
       return state;
   }

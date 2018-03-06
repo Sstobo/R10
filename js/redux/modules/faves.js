@@ -1,10 +1,3 @@
-import realm, { queryFaves, createFaves, deleteFaves } from '../../config/models';
-
-GET_FAVES = 'GET_FAVES';
-TOGGLE_FAVES = 'TOGGLE_FAVES';
-
-export const getFaves = faves => ({
-	type: GET_FAVES,
 	payload: faves
 });
 
@@ -20,8 +13,6 @@ export const fetchFaves = () => dispatch => {
 	data.map((item, key) => (faves[item.id] = 'true'));
 	dispatch(getFaves(faves));
 };
-
-//reducer
 
 export default (
 	state = {

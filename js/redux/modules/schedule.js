@@ -1,4 +1,6 @@
-import { formatSessionData } from '../helpers/dataReshaper';
+import {
+	formatSessionData
+} from '../helpers/dataReshaper';
 
 const SESSIONS_URL = 'https://r10app-95fea.firebaseio.com/sessions.json';
 
@@ -41,27 +43,30 @@ export default (
 	action
 ) => {
 	switch (action.type) {
-		case SESSIONS_LOADING: {
-			return {
-				...state,
-				loading: true,
-				error: ''
-			};
-		}
-		case SESSIONS_SUCCESS: {
-			return {
-				...state,
-				loading: false,
-				sessionData: action.payload,
-				error: ''
-			};
-		}
-		case SESSIONS_ERROR: {
-			return {
-				loading: false,
-				error: action.payload
-			};
-		}
+		case SESSIONS_LOADING:
+			{
+				return {
+					...state,
+					loading: true,
+					error: ''
+				};
+			}
+		case SESSIONS_SUCCESS:
+			{
+				return {
+					...state,
+					loading: false,
+					sessionData: action.payload,
+					error: ''
+				};
+			}
+		case SESSIONS_ERROR:
+			{
+				return {
+					loading: false,
+					error: action.payload
+				};
+			}
 		default:
 			return state;
 	}
