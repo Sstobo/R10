@@ -20,7 +20,7 @@ class About extends Component {
 	render() {
 		const { title, description } = this.props;
 		return (
-			<TouchableOpacity onPress={this._onPress}>
+			<TouchableOpacity underlayColor="grey" onPress={this._onPress}>
 				<Animated.Text style={styles.menuTitlesAbout}>
 					{this.state.opened ? '-' : '+'}
 					{title}

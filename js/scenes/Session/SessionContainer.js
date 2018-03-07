@@ -3,7 +3,7 @@ import Session from './Session';
 import { connect } from 'react-redux';
 import { fetchFaves } from '../../redux/modules/faves';
 import { formatDataObject } from '../../redux/helpers/dataReshaper';
-import LinearGradient from '../../components/LinearGradient';
+import LinGradient from '../../components/LinearGradient';
 class SessionContainer extends Component {
 	constructor(props) {
 		super(props);
@@ -16,7 +16,7 @@ class SessionContainer extends Component {
 		navigationBar: {
 			title: 'Session',
 			tintColor: 'white',
-			renderBackground: LinearGradient
+			renderBackground: LinGradient
 		}
 	};
 

@@ -6,7 +6,7 @@ import { createFave, deleteFave } from '../../config/models';
 import { formatUnixDate } from '../../redux/helpers/dataReshaper';
 import { goToSpeaker } from '../../redux/helpers/navigationHelpers';
 import { styles } from './styles';
-import LinearGradient from '../../components/LinearGradient';
+import LinGradient from '../../components/LinearGradient';
 import GradientButton from '../../components/GradientButton';
 
 import { connect } from 'react-redux';
@@ -52,7 +52,7 @@ class Session extends Component {
 					<Text style={styles.title}>{list.item.title}</Text>
 					<Text style={styles.time}>{formatUnixDate(list.item.start_time)}</Text>
 					<Text style={styles.description}>{list.item.description}</Text>
-					<TouchableHighlight onPress={() => goToSpeaker(name)}>
+					<TouchableHighlight underlayColor="grey" onPress={() => goToSpeaker(name)}>
 						<View>
 							<Text style={styles.location}>Presented by:</Text>
 							<View style={styles.border}>
@@ -64,7 +64,7 @@ class Session extends Component {
 
 					<View style={{ justifyContent: 'center', alignItems: 'center' }}>
 						<TouchableOpacity
-							style={styles.button}
+							underlayColor="grey"
 							onPress={() =>
 								toggleFaves(list.item.session_id, !Object.keys(faves).includes(list.item.session_id))}
 						>

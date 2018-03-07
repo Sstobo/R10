@@ -23,7 +23,7 @@ class Schedule extends Component {
 					sections={data}
 					renderItem={({ item }) => (
 						<View>
-							<TouchableHighlight onPress={() => goToSession('schedule', { item })}>
+							<TouchableHighlight underlayColor="grey" onPress={() => goToSession('schedule', { item })}>
 								<View style={{ borderBottomWidth: 2, borderBottomColor: 'lightgrey' }}>
 									<Text style={styles.title}>{item.title}</Text>
 									<View

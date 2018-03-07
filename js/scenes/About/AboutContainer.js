@@ -14,7 +14,7 @@ import {
 import { fetchCodeOfConduct } from './../../redux/modules/about';
 import About from './About';
 import { connect } from 'react-redux';
-import LinearGradient from 'react-native-linear-gradient';
+import LinGradient from '../../components/LinearGradient';
 import { styles } from './styles';
 class AboutContainer extends Component {
 	componentDidMount() {
@@ -25,7 +25,7 @@ class AboutContainer extends Component {
 		navigationBar: {
 			title: 'About',
 			tintColor: 'white',
-			renderBackground: LinearGradient
+			renderBackground: LinGradient
 		}
 	};
 

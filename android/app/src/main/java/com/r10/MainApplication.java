@@ -3,8 +3,6 @@ package com.r10;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import io.realm.react.RealmReactPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import io.realm.react.RealmReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -29,12 +27,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RealmReactPackage(),
             new VectorIconsPackage(),
             new LinearGradientPackage(),
-            new RealmReactPackage(),
-         
-            new VectorIconsPackage()
+            new RealmReactPackage()
       );
     }
 

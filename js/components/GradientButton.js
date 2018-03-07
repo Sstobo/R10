@@ -16,9 +16,11 @@ const GradientButton = ({ buttonText, marginTop, marginLeft, fontSize }) => (
 			style={[
 				styles.buttonText,
 				{
-					marginLeft: marginLeft,
+					marginLeft: 34,
 					marginTop: marginTop,
-					fontSize: fontSize
+					fontSize: fontSize,
+
+					color: 'white'
 				}
 			]}
 		>

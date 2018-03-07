@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSessions } from '../../redux/modules/schedule';
 import { formatSessionData } from '../../redux/helpers/dataReshaper';
-import LinearGradient from '../../components/LinearGradient';
+import LinGradient from '../../components/LinearGradient';
 import Schedule from './Schedule';
 import { fetchFaves } from '../../redux/modules/faves';
 class ScheduleContainer extends Component {
@@ -14,7 +14,7 @@ class ScheduleContainer extends Component {
 		navigationBar: {
 			title: 'Schedule',
 			tintColor: 'white',
-			renderBackground: LinearGradient
+			renderBackground: LinGradient
 		}
 	};
 

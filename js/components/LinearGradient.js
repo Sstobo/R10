@@ -3,7 +3,7 @@ import { Text } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors, typography } from '../config/styleConstants';
 
-const GradientButton = ({ text }) => (
+const LinGradient = ({ text }) => (
 	<LinearGradient
 		start={{ x: 0.0, y: 1.0 }}
 		end={{ x: 1.0, y: 0.0 }}
@@ -16,4 +16,4 @@ const GradientButton = ({ text }) => (
 	</LinearGradient>
 );
 
-export default LinearGradient;
+export default LinGradient;

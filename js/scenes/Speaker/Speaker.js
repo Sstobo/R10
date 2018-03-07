@@ -3,14 +3,16 @@ import { Text, View, TouchableOpacity, Image, Linking, ScrollView, Button } from
 import Icon from 'react-native-vector-icons/Ionicons';
 import { removeSpeaker } from './../../redux/helpers/navigationHelpers';
 import { styles } from './styles';
+import GradientButton from '../../components/GradientButton';
 
 const Speaker = ({ speakerData }) => (
 	<View style={styles.container}>
 		<ScrollView>
 			<View style={{ backgroundColor: 'black', height: 1000, padding: 8 }}>
-				<TouchableOpacity onPress={() => removeSpeaker()}>
+				<TouchableOpacity underlayColor="grey" onPress={() => removeSpeaker()}>
 					<Icon active name="ios-close" color="white" size={40} />
 				</TouchableOpacity>
+
 				<View style={{ justifyContent: 'center', alignItems: 'center' }}>
 					<View
 						style={{
@@ -24,9 +26,13 @@ const Speaker = ({ speakerData }) => (
 						<Image style={styles.image} source={{ uri: speakerData.image }} />
 						<Text style={styles.title}> {speakerData.name} </Text>
 						<Text style={styles.description}> {speakerData.bio} </Text>
-						<TouchableOpacity onPress={() => Linking.openURL(speakerData.url)} style={styles.button}>
-							<Text style={{ color: 'white' }}>Read More on Wikipedia</Text>
-						</TouchableOpacity>
+						<GradientButton
+							marginTop={15}
+							marginLeft={50}
+							fontSize={15}
+							onPress={() => Linking.openURL(speakerData.url)}
+							buttonText={'Read More'}
+						/>
 					</View>
 				</View>
 			</View>

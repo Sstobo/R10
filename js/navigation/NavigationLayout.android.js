@@ -20,31 +20,34 @@ class NavigationLayout extends React.Component {
 				initialItem="schedule"
 				drawerWidth={300}
 				renderHeader={this._renderHeader}
-				renderIcon={isSelected => this.renderIcon(isSelected, 'ios-calendar')}
+				renderIcon={isSelected => this.renderIcon(isSelected, 'md-calendar')}
 			>
 				<DrawerNavigationItem
 					id="schedule"
+					navigatorUID={'schedule'}
 					selectedStyle={styles.selectedItemStyle}
 					renderTitle={isSelected => this.renderTitle('schedule', isSelected)}
-					renderIcon={isSelected => this.renderIcon(isSelected, 'ios-calendar')}
+					renderIcon={isSelected => this.renderIcon(isSelected, 'md-calendar')}
 				>
 					<StackNavigation id="schedule" initialRoute={Router.getRoute('schedule')} />
 				</DrawerNavigationItem>
 
 				<DrawerNavigationItem
 					id="about"
+					navigatorUID={'about'}
 					selectedStyle={styles.selectedItemStyle}
 					renderTitle={isSelected => this.renderTitle('about', isSelected)}
-					renderIcon={isSelected => this.renderIcon(isSelected, 'ios-calendar')}
+					renderIcon={isSelected => this.renderIcon(isSelected, 'md-calendar')}
 				>
 					<StackNavigation id="about" initialRoute={Router.getRoute('about')} />
 				</DrawerNavigationItem>
 
 				<DrawerNavigationItem
 					id="faves"
+					navigatorUID={'faves'}
 					selectedStyle={styles.selectedItemStyle}
 					renderTitle={isSelected => this.renderTitle('faves', isSelected)}
-					renderIcon={isSelected => this.renderIcon(isSelected, 'ios-calendar')}
+					renderIcon={isSelected => this.renderIcon(isSelected, 'md-calendar')}
 				>
 					<StackNavigation id="faves" initialRoute={Router.getRoute('faves')} />
 				</DrawerNavigationItem>
