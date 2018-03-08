@@ -10,13 +10,12 @@ export const styles = StyleSheet.create({
 		alignItems: 'center'
 	},
 	container: {
-		marginTop: 24,
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
 	title: {
 		color: 'black',
-		fontSize: 20,
+		fontSize: 22,
 		marginBottom: 12,
 		fontFamily: 'Montserrat'
 	},
@@ -26,11 +25,20 @@ export const styles = StyleSheet.create({
 		marginBottom: 24,
 		borderRadius: 60
 	},
+	headerContainer: {
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		flexDirection: 'row',
+		paddingRight: 80
+	},
 	description: {
 		fontSize: 16,
 		lineHeight: 24,
 		marginTop: 12,
 		marginBottom: 34,
+		fontWeight: '200',
+		textAlign: 'center',
+		color: 'black',
 		fontFamily: 'Montserrat'
 	},
 	link: {

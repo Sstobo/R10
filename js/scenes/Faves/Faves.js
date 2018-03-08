@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatUnixDate } from '../../redux/helpers/dataReshaper';
 import propTypes from 'prop-types';
-import { Text, View } from 'react-native';
+import { Text, View, StatusBar } from 'react-native';
 import { styles } from './styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -10,6 +10,7 @@ const Faves = ({ faves, sessionData }) => {
 
 	return (
 		<View>
+			<StatusBar barStyle="light-content" />
 			{theFaves.map((fave, index) => {
 				return (
 					<View key={index} style={styles.event}>

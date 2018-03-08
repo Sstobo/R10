@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
 	},
 	title: {
 		color: 'black',
-		fontSize: 20,
+		fontSize: 26,
 		marginBottom: 12,
 		fontFamily: 'Montserrat'
 	},
@@ -58,13 +58,17 @@ export const styles = StyleSheet.create({
 		fontFamily: 'Montserrat'
 	},
 	time: {
-		color: 'red'
+		color: '#cf392a',
+		fontWeight: 'bold',
+		fontSize: 16,
+		marginBottom: 12
 	},
 	description: {
-		fontSize: 16,
+		fontSize: 20,
 		lineHeight: 24,
 		marginTop: 12,
 		marginBottom: 34,
+		fontWeight: '200',
 		fontFamily: 'Montserrat'
 	},
 	presented: {

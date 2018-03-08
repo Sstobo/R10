@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import { styles } from './styles';
 import { formatUnixDate } from './../../redux/helpers/dataReshaper';
 import { goToSession } from './../../redux/helpers/navigationHelpers';
-import { SectionList, AppRegistry, StyleSheet, TouchableHighlight, Text, View } from 'react-native';
+import { SectionList, AppRegistry, StyleSheet, TouchableHighlight, Text, View, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { toggleFaves } from '../../redux/modules/faves';
@@ -19,6 +19,7 @@ class Schedule extends Component {
 
 		return (
 			<View>
+				<StatusBar barStyle="light-content" />
 				<SectionList
 					sections={data}
 					renderItem={({ item }) => (

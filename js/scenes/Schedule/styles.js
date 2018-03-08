@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
 		marginTop: 44
 	},
 	title: {
-		fontSize: 22,
+		fontSize: 17,
 		marginTop: 12,
 		marginBottom: 4,
 		fontFamily: 'Montserrat',
@@ -14,14 +14,18 @@ export const styles = StyleSheet.create({
 		paddingLeft: 12
 	},
 	time: {
+		paddingTop: 4,
+		paddingBottom: 4,
 		backgroundColor: 'lightgrey',
-		fontSize: 22,
+		fontSize: 15,
 		color: 'black',
-		paddingLeft: 12
+		paddingLeft: 12,
+		fontWeight: 'bold'
 	},
 	location: {
 		fontSize: 16,
 		fontFamily: typography.fontMain,
+		color: 'grey',
 		borderBottomColor: '#F00',
 		borderTopWidth: 0,
 		borderLeftWidth: 0,

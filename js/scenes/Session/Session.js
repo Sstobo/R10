@@ -8,7 +8,6 @@ import { goToSpeaker } from '../../redux/helpers/navigationHelpers';
 import { styles } from './styles';
 import LinGradient from '../../components/LinearGradient';
 import GradientButton from '../../components/GradientButton';
-
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
 class Session extends Component {
@@ -70,7 +69,7 @@ class Session extends Component {
 						>
 							<GradientButton
 								marginTop={15}
-								marginLeft={50}
+								marginLeft={20}
 								fontSize={15}
 								buttonText={
 									!!Object.keys(faves).includes(list.item.session_id)

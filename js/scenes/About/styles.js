@@ -8,22 +8,23 @@ export const styles = StyleSheet.create({
 	listWrapper: {
 		marginTop: 24
 	},
-
 	aboutSubLine: {
-		fontSize: 22,
-		marginBottom: 4
+		fontSize: 24,
+		fontWeight: 'bold',
+		marginBottom: 18
 	},
-
 	aboutText: {
-		fontSize: 18,
+		fontSize: 16,
 		marginTop: 12,
-		marginBottom: 12,
+		marginBottom: 18,
+		fontWeight: '100',
 		fontFamily: 'Montserrat'
 	},
 	menuTitlesAbout: {
-		fontSize: 18,
+		fontSize: 19,
 		color: '#9963ea',
-		marginBottom: 4
+		marginBottom: 18,
+		fontWeight: 'bold'
 	},
 	loadingGif: {},
 	aboutImageContainer: {
@@ -32,5 +33,10 @@ export const styles = StyleSheet.create({
 		borderBottomWidth: 1,
 		height: 100,
 		borderColor: '#e6e6e6'
+	},
+	paragraphText: {
+		fontSize: 15,
+		fontWeight: '100',
+		marginBottom: 12
 	}
 });

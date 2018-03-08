@@ -9,7 +9,8 @@ import {
 	ScrollView,
 	LayoutAnimation,
 	Animated,
-	TouchableOpacity
+	TouchableOpacity,
+	StatusBar
 } from 'react-native';
 import { fetchCodeOfConduct } from './../../redux/modules/about';
 import About from './About';
@@ -26,6 +27,9 @@ class AboutContainer extends Component {
 			title: 'About',
 			tintColor: 'white',
 			renderBackground: LinGradient
+		},
+		statusBar: {
+			tintColor: 'white'
 		}
 	};
 
@@ -49,6 +53,7 @@ class AboutContainer extends Component {
 		} else {
 			return (
 				<View style={styles.container}>
+					<StatusBar barStyle="light-content" />
 					<ScrollView>
 						<View style={styles.aboutImageContainer}>
 							<Image style={styles.aboutImage} source={require('../../assets/images/r10_logo.png')} />

@@ -7,7 +7,10 @@ export const styles = StyleSheet.create({
 	},
 	time: {
 		backgroundColor: 'lightgrey',
-		paddingLeft: 8
+		paddingLeft: 8,
+		paddingTop: 6,
+		paddingBottom: 6,
+		fontWeight: 'bold'
 	},
 	heartWrap: {
 		flexDirection: 'row',
@@ -19,6 +22,11 @@ export const styles = StyleSheet.create({
 	},
 	eventTitle: {
 		fontSize: 18,
-		padding: 4
+		paddingTop: 6,
+		paddingLeft: 8,
+		fontWeight: 'bold'
+	},
+	location: {
+		color: 'grey'
 	}
 });
